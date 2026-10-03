@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #080808;
+    --foreground: #ffffff;
+    --card: #151515;
+    --card-foreground: #ffffff;
+    --secondary: #111111;
+    --secondary-foreground: #a1a1aa;
+    --muted: #1f1f1f;
+    --muted-foreground: #71717a;
+    --accent-gold: #d4af37;
+    --accent-gold-light: #f3e5ab;
+    --accent-gold-dark: #997d20;
+    --border: #262626;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #080808;
+    color: #ffffff;
+    font-family: var(--font-jakarta), var(--font-inter), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Luxury Accent Utilities */
+.gold-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 20%, #f3e5ab 60%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.dark-glass {
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Resume A4 Layout Specifications */
+.a4-page-container {
+  width: 210mm;
+  min-height: 297mm;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
+  color: #18181b;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Print CSS to isolate resume preview during browser Print/Save-as-PDF */
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide everything except the print document */
+  nav, footer, aside, .no-print, header:not(.resume-document header), button, .SupabaseSetupBanner {
+    display: none !important;
+  }
+
+  .print-area-wrapper {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .a4-page-container {
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0mm;
+  }
+}
