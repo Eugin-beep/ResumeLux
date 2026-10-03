@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ResumeLux Studio' }],
 
   verification: {
-    google: '<meta name="google-site-verification" content="scXrTbL4MuRPTeJbcp66I8sR6KVSpe4I7rn9rbM_rR0" />',
+    google: 'scXrTbL4MuRPTeJbcp66I8sR6KVSpe4I7rn9rbM_rR0',
   },
 
   openGraph: {
